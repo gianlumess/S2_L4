@@ -5,9 +5,9 @@ console.log("-----------------------ESERCIZIO 1----------------------");
 
 function area(l1, l2) {
   const result = (l1 * l2) / 2;
-  console.log(result);
+  return result;
 }
-area(4, 8);
+console.log(area(4, 8));
 
 /* ESERCIZIO 2
  Scrivi una funzione di nome "crazySum", che riceve due numeri interi come parametri.
@@ -32,13 +32,13 @@ console.log("funzione con parametri uguali", crazySum(4, 4));
 
 console.log("-----------------------ESERCIZIO 3----------------------");
 
-function crazyDiff(x) {
+function crazyDiff(num) {
   let risultato = 0;
-  if (x > 19) {
-    risultato = (x - 19) * 3;
+  if (num > 19) {
+    risultato = (num - 19) * 3;
     return risultato;
-  } else if (x <= 19) {
-    risultato = x - 19;
+  } else if (num <= 19) {
+    risultato = num - 19;
     risultato = Math.abs(risultato);
     return risultato;
   }
@@ -76,16 +76,13 @@ console.log(boundary(100));
 console.log("-----------------------ESERCIZIO 5----------------------");
 
 function epify(string) {
-  let controlla = string.indexOf("Epicode");
-  let parola = "Epicode";
-  if (string.indexOf("Epicode") === true) {
+  if (string.startsWith("Epicode")) {
     return string;
   } else {
-    const unione = parola.concat(string);
-    return unione;
+    return "Epicode" + string;
   }
 }
-console.log(epify("Epicode è incredibile"));
+console.log(epify(" è incredibile"));
 /* ESERCIZIO 6
  Scrivi una funzione di nome "check3and7" che accetta un numero positivo come parametro. La funzione deve controllare che il parametro sia un multiplo
  di 3 o di 7. (Suggerimento: usa l'operatore modulo)
@@ -144,21 +141,25 @@ console.log(upperFirst("Ciao come va"));
 */
 
 console.log("-----------------------ESERCIZIO 9----------------------");
-
+console.log(
+  "bisogna rimuovere la prima e l'ultima lettera dalla parola 'ibiza':"
+);
 function cutString(string) {
-  let caratteri = string.split("");
-  console.log(caratteri);
-  for (let index = 0; index < caratteri.length; index++) {
-    if (caratteri[index] === 0) {
-      caratteri[index] = caratteri[index].splice(0, 1);
-    } else {
-      caratteri.pop();
-    }
-  }
+  return string.slice(1, string.length - 1);
 }
 console.log(cutString("ibiza"));
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+console.log("-----------------------ESERCIZIO 10----------------------");
+
+function giveMeRandom(num) {
+  const array = [];
+  for (let index = 0; index < num; index++) {
+    const randomNumber = Math.floor(Math.random() * 11);
+    array.push(randomNumber);
+  }
+  return array;
+}
+console.log(giveMeRandom(6));
